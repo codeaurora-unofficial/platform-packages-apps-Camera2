@@ -8,6 +8,7 @@ LOCAL_LDFLAGS   := -llog -ljnigraphics
 LOCAL_SDK_VERSION := 17
 LOCAL_MODULE    := libjni_tinyplanet
 LOCAL_SRC_FILES := tinyplanet.cc
+LOCAL_PRODUCT_MODULE := true
 
 LOCAL_CFLAGS += -ffast-math -O3 -funroll-loops
 LOCAL_CFLAGS += -Wall -Wextra -Werror
@@ -22,6 +23,7 @@ LOCAL_NDK_STL_VARIANT := c++_static
 LOCAL_LDFLAGS   := -llog -ldl -ljnigraphics
 LOCAL_SDK_VERSION := 17
 LOCAL_MODULE    := libjni_jpegutil
+LOCAL_PRODUCT_MODULE := true
 LOCAL_SRC_FILES := jpegutil.cpp jpegutilnative.cpp
 
 LOCAL_STATIC_LIBRARIES := libjpeg_static_ndk
@@ -29,8 +31,5 @@ LOCAL_STATIC_LIBRARIES := libjpeg_static_ndk
 LOCAL_CFLAGS += -ffast-math -O3 -funroll-loops
 LOCAL_CFLAGS += -Wall -Wextra -Werror
 LOCAL_ARM_MODE := arm
-
-# Remove when libjpeg_static_ndk is XOM compatible.
-LOCAL_XOM := false
 
 include $(BUILD_SHARED_LIBRARY)
