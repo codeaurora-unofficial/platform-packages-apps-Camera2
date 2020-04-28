@@ -19,7 +19,6 @@ package com.android.camera.one.v2.camera2proxy;
 import android.graphics.Rect;
 import android.media.Image;
 
-import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
 
@@ -204,7 +203,7 @@ public class AndroidImageProxy implements ImageProxy {
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
+        return Objects.toStringHelper(this)
                 .add("format", getFormat())
                 .add("timestamp", getTimestamp())
                 .add("width", getWidth())

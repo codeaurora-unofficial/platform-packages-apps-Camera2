@@ -20,7 +20,6 @@ import com.google.common.util.concurrent.AsyncFunction;
 import com.google.common.util.concurrent.ForwardingListenableFuture;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.MoreExecutors;
 
 import java.util.List;
 
@@ -97,7 +96,7 @@ public class Futures2 {
         // allAsList will propagate the failures instead of null values to the
         // parameters of the supplied function.
         ListenableFuture<List<Object>> result = Futures.<Object>allAsList(futures);
-        return Futures.transformAsync(result, new AsyncFunction<List<Object>, TResult>() {
+        return Futures.transform(result, new AsyncFunction<List<Object>, TResult>() {
             @Override
             public ListenableFuture<TResult> apply(@Nullable List<Object> list) throws Exception {
                 T1 value1 = (T1) list.get(0);
@@ -105,7 +104,7 @@ public class Futures2 {
 
                 return fn.apply(value1, value2);
             }
-        }, MoreExecutors.directExecutor());
+        });
     }
 
     /**
@@ -142,7 +141,7 @@ public class Futures2 {
         // allAsList will propagate the failures instead of null values to the
         // parameters of the supplied function.
         ListenableFuture<List<Object>> result = Futures.<Object>allAsList(futures);
-        return Futures.transformAsync(result, new AsyncFunction<List<Object>, TResult>() {
+        return Futures.transform(result, new AsyncFunction<List<Object>, TResult>() {
             @Override
             public ListenableFuture<TResult> apply(@Nullable List<Object> list) throws Exception {
                 T1 value1 = (T1) list.get(0);
@@ -151,7 +150,7 @@ public class Futures2 {
 
                 return fn.apply(value1, value2, value3);
             }
-        }, MoreExecutors.directExecutor());
+        });
     }
 
     /**

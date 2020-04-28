@@ -135,11 +135,6 @@ public interface OneCameraCharacteristics {
     public boolean isAutoFocusSupported();
 
     /**
-     * @return true if this camera supports continuous picture autofocus.
-     */
-    public boolean isContinuousPictureAutoFocusSupported();
-
-    /**
      * @return true if this camera supports custom AutoExposure regions.
      */
     public boolean isAutoExposureSupported();

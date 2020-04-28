@@ -176,11 +176,6 @@ public class OneCameraCharacteristicsImpl implements OneCameraCharacteristics {
     }
 
     @Override
-    public boolean isContinuousPictureAutoFocusSupported() {
-        return getCameraDirection() == Facing.BACK;
-    }
-
-    @Override
     public boolean isAutoExposureSupported() {
         // Custom AE is only supported on the back camera for legacy devices.
         return getCameraDirection() == Facing.BACK;
